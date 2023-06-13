@@ -1,5 +1,6 @@
 import { Form, Button, Container, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { iniciarSesion } from "../helpers/queries";
 
 const Login = () => {
   const {
@@ -11,6 +12,14 @@ const Login = () => {
 
   const onSubmit = (usuario) => {
     console.log(usuario);
+    reset();
+    iniciarSesion(usuario).then((respuesta)=>{
+      if(respuesta){
+        console.log("Aqui esta todo bien con el usuario")
+      }else{
+        console.log("Aqui esta todo mal")
+      }
+    })
   };
 
   return (

@@ -3,6 +3,6 @@
       { "id": 1, "nombreProducto": "Capuccino", "precio": 300, "categoria": "bebida caliente", "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "descripcion": "Aquí va una descripcion detallada del producto..." }
     ],
     "usuarios": [
-      { "id": 1, "nombreUsuario": "admin", "email": "admin@admin.com", "password": "12345678" }
+      { "id": 1, "nombreUsuario": "admin", "email": "admin@admin.com", "password": "Admin12345678" }
     ]
   }
