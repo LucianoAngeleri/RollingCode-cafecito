@@ -1,19 +1,32 @@
-import { Navbar, Container, Nav } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom"
+import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import {Link, NavLink, useNavigate} from 'react-router-dom'
 
+const Menu = ({usuarioLogueado, setUsuarioLogueado}) => {
+  const navegacion = useNavigate();
 
-const Menu = () => {
+  const cerrarSesion = ()=>{
+    sessionStorage.removeItem('usuario');
+    setUsuarioLogueado({});
+    navegacion('/')
+  }
   return (
     <Navbar bg="danger" variant="dark" expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/">Cafecito</Navbar.Brand>
+        <Navbar.Brand as={Link} to='/'>Cafecito</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link end as={Link} className="nav-item nav-link" to="/">Inicio</Nav.Link>
-            <Nav.Link end as={Link} className="nav-item nav-link" to="/registro">Registro</Nav.Link>
-            <Nav.Link end as={Link} className="nav-item nav-link" to="/administrador">Administrador</Nav.Link>
-            <Nav.Link end as={Link} className="nav-item nav-link" to="/login">Login</Nav.Link>
+            <NavLink end className='nav-item nav-link' to='/'>Inicio</NavLink>
+            <NavLink end className='nav-item nav-link' to='/registro'>Registro</NavLink>
+            {
+              (usuarioLogueado.nombreUsuario)?
+              <>
+              <NavLink end className='nav-item nav-link' to='/administrador'>Administrador</NavLink>
+              <div>
+              <Button variant="dark" onClick={cerrarSesion}>Logout</Button>
+              </div>
+              </>:<NavLink end className='nav-item nav-link' to='/login'>Login</NavLink>
+            }
           </Nav>
         </Navbar.Collapse>
       </Container>

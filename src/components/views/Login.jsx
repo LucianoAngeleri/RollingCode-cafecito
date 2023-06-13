@@ -1,23 +1,32 @@
 import { Form, Button, Container, Card } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { iniciarSesion } from "../helpers/queries";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ setUsuarioLogueado }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
+  const navegacion = useNavigate();
 
   const onSubmit = (usuario) => {
     console.log(usuario);
-    reset();
     iniciarSesion(usuario).then((respuesta)=>{
       if(respuesta){
-        console.log("Aqui esta todo bien con el usuario")
+        sessionStorage.setItem("usuario", JSON.stringify(respuesta))
+        setUsuarioLogueado(respuesta);
+        reset();
+        navegacion("/administrador")
       }else{
-        console.log("Aqui esta todo mal")
+        Swal.fire(
+          'Error',
+          'El Email o el Password son incorrectos',
+          'error'
+        )
       }
     })
   };

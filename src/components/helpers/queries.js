@@ -2,8 +2,6 @@
 const URL_usuario = import.meta.env.VITE_API_USUARIO;
 const URL_producto = import.meta.env.VITE_API_PRODUCTO;
 
-console.log(URL_usuario);
-console.log(URL_producto);
 /*
 GET devuelven una lista de elementos o un elemento
 POST me permiten crear un elemento
