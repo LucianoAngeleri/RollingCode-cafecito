@@ -7,6 +7,27 @@
       "categoria": "bebida caliente",
       "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       "descripcion": "Aquí va una descripcion detallada del producto..."
+    },
+    {
+      "nombreProducto": "Croisstant",
+      "precio": "500",
+      "imagen": "https://media.istockphoto.com/id/1419030438/es/foto/culturista-masculino-musculoso-haciendo-ejercicio-en-el-gimnasio.jpg?s=612x612&w=0&k=20&c=h6UJO0BgcaZWjr1wt8LWjo7tVnTLBCUUJ098iDa3YXE=",
+      "categoria": "bebida fria",
+      "id": 2
+    },
+    {
+      "nombreProducto": "Té de Manzanilla",
+      "precio": "500",
+      "imagen": "https://www.pexels.com/es-es/foto/hombre-corriendo-en-campo-de-arena-2827392/",
+      "categoria": "bebida caliente",
+      "id": 3
+    },
+    {
+      "nombreProducto": "Pan Integral",
+      "precio": "650",
+      "imagen": "https://images.pexels.com/photos/2827392/pexels-photo-2827392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "salado",
+      "id": 4
     }
   ],
   "usuarios": [

@@ -1,5 +1,8 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { obtenerProducto } from "../../helpers/queries"
+import { useParams } from "react-router-dom";
 
 const EditarProducto = () => {
   const {
@@ -7,11 +10,22 @@ const EditarProducto = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    setValue
   } = useForm();
 
-  const onSubmit = (productoNuevo) => {
-    console.log(productoNuevo);
-  };
+const {id} = useParams();
+
+  useEffect(()=>{
+    obtenerProducto(id).then((respuesta)=>{
+      if(respuesta){
+        setValue("nombreProducto", respuesta.nombreProducto);
+        setValue("precio", respuesta.precio);
+        setValue("categoria", respuesta.categoria);
+        setValue("imagen", respuesta.imagen);
+      }
+
+    })
+  })
 
   return (
     <section className="container mainSection">

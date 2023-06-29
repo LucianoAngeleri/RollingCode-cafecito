@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 
 const ItemProducto = ({producto}) => {
@@ -11,7 +12,7 @@ const ItemProducto = ({producto}) => {
       <td>{producto.imagen}</td>
       <td>{producto.categoria}</td>
       <td>
-        <Button className="btn btn-warning">Editar</Button>
+        <Link className="btn btn-warning" to="/administraor/editar-producto">Editar</Link>
         <Button variant="danger">
           Borrar
         </Button>

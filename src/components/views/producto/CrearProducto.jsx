@@ -1,5 +1,7 @@
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { crearProducto } from "../../helpers/queries";
+import Swal from "sweetalert2";
 const CrearProducto = () => {
   const {
     register,
@@ -10,6 +12,14 @@ const CrearProducto = () => {
 
   const onSubmit = (productoNuevo) => {
     console.log(productoNuevo);
+    crearProducto(productoNuevo).then((respuesta)=>{
+      if(respuesta.status === 201){
+        Swal.fire("Producto Creado",`El producto ${productoNuevo.nombreProducto} fue creado correctamente`,"success")
+        reset();
+      }else{
+        Swal.fire("Ocurrió un error",`El producto ${productoNuevo.nombreProducto} no se pudo crear`,"error")
+      }
+    })
   };
 
   return (
@@ -30,7 +40,7 @@ const CrearProducto = () => {
               },
               maxLength: {
                 value: 100,
-                message: "La cantidad minima de caracteres es de 2 digitos",
+                message: "La cantidad máxima de caracteres es de 100 digitos",
               },
             })}
           />

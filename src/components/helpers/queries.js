@@ -39,30 +39,30 @@ export const obtenerListaProductos = async()=>{
         console.log(error)
     }
 }
-export const crearProducto = async()=>{
+export const crearProducto = async(producto)=>{
     try{
         const respuesta = await fetch(URL_producto,{
           method:"POST",
           headers:{
             "Content-type":"application/json"
           },
-          body: JSON().stringify(producto)
+          body: JSON.stringify(producto)
         });
-        return respuesta; //El status de la respuesta 201
+        return respuesta; //El status de la respuesta 200
     }catch(error){
         console.log(error)
     }
 }
-export const editarProducto = async()=>{
+export const editarProducto = async(producto,id)=>{
     try{
         const respuesta = await fetch(URL_producto+"/"+id,{
           method:"PUT",
           headers:{
             "Content-type":"application/json"
           },
-          body: JSON().stringify(producto)
+          body: JSON.stringify(producto)
         });
-        return respuesta; //El status de la respuesta 201
+        return respuesta; //El status de la respuesta 200
     }catch(error){
         console.log(error)
     }
