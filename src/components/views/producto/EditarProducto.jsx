@@ -1,8 +1,11 @@
+import { useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
-import { obtenerProducto } from "../../helpers/queries"
 import { useParams } from "react-router-dom";
+import { obtenerProducto } from "../../helpers/queries";
+import { editarProducto } from "../../helpers/queries";
+import Swal from "sweetalert2";
+
 
 const EditarProducto = () => {
   const {
@@ -12,20 +15,32 @@ const EditarProducto = () => {
     reset,
     setValue
   } = useForm();
-
-const {id} = useParams();
+  const {id} = useParams();
 
   useEffect(()=>{
     obtenerProducto(id).then((respuesta)=>{
       if(respuesta){
-        setValue("nombreProducto", respuesta.nombreProducto);
-        setValue("precio", respuesta.precio);
-        setValue("categoria", respuesta.categoria);
-        setValue("imagen", respuesta.imagen);
+        //cargar en el formulario los datos del objeto
+        setValue('nombreProducto', respuesta.nombreProducto);
+        setValue('precio', respuesta.precio);
+        setValue('categoria', respuesta.categoria);
+        setValue('imagen', respuesta.imagen);
       }
-
     })
-  })
+  }, [])
+
+  const onSubmit = (productoEditado) => {
+    console.log(productoEditado);
+    // agregar la consulta de la api que pide editar
+    editarProducto(productoEditado,id).then((respuesta)=>{
+      if(respuesta.status === 200){
+        Swal.fire("Producto editado",`El producto ${productoEditado.nombreProducto} fue editado correctamente`,"success")
+        reset();
+      }else{
+        Swal.fire("Ocurrió un error",`El producto ${productoEditado.nombreProducto} no se pudo editar`,"error")
+      }
+    })
+  };
 
   return (
     <section className="container mainSection">
@@ -45,7 +60,7 @@ const {id} = useParams();
               },
               maxLength: {
                 value: 100,
-                message: "La cantidad minima de caracteres es de 2 digitos",
+                message: "La cantidad máxima de caracteres es de 100 digitos",
               },
             })}
           />

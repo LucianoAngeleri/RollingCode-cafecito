@@ -12,7 +12,7 @@ const ItemProducto = ({producto}) => {
       <td>{producto.imagen}</td>
       <td>{producto.categoria}</td>
       <td>
-        <Link className="btn btn-warning" to="/administraor/editar-producto">Editar</Link>
+        <Link className="btn btn-warning" to={"/administrador/editar-producto/"+producto.id}>Editar</Link>
         <Button variant="danger">
           Borrar
         </Button>
