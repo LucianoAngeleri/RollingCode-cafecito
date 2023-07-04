@@ -1,33 +1,60 @@
 {
   "productos": [
     {
-      "id": 1,
-      "nombreProducto": "Capuccino",
-      "precio": 300,
-      "categoria": "bebida caliente",
-      "imagen": "https://images.pexels.com/photos/3020919/pexels-photo-3020919.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "descripcion": "Aquí va una descripcion detallada del producto..."
+      "nombreProducto": "Croissant",
+      "precio": "500",
+      "imagen": "https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "panadería",
+      "id": 1
     },
     {
-      "nombreProducto": "Croisstant",
-      "precio": "500",
-      "imagen": "https://media.istockphoto.com/id/1419030438/es/foto/culturista-masculino-musculoso-haciendo-ejercicio-en-el-gimnasio.jpg?s=612x612&w=0&k=20&c=h6UJO0BgcaZWjr1wt8LWjo7tVnTLBCUUJ098iDa3YXE=",
-      "categoria": "bebida fria",
-      "id": 2
-    },
-    {
-      "nombreProducto": "Té de Manzanilla",
-      "precio": "500",
-      "imagen": "https://www.pexels.com/es-es/foto/hombre-corriendo-en-campo-de-arena-2827392/",
-      "categoria": "bebida caliente",
+      "nombreProducto": "Tarta de manzana",
+      "precio": "800",
+      "imagen": "https://images.pexels.com/photos/1028455/pexels-photo-1028455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "panadería",
       "id": 3
     },
     {
-      "nombreProducto": "Pan Integral",
-      "precio": "800",
-      "imagen": "https://images.pexels.com/photos/2827392/pexels-photo-2827392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "categoria": "salado",
-      "id": 4
+      "nombreProducto": "Donut",
+      "precio": "350",
+      "imagen": "https://images.pexels.com/photos/461428/pexels-photo-461428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "panadería",
+      "id": 5
+    },
+    {
+      "nombreProducto": "Cappuccino",
+      "precio": "400",
+      "imagen": "https://images.pexels.com/photos/5848798/pexels-photo-5848798.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "bebida caliente",
+      "id": 6
+    },
+    {
+      "nombreProducto": "Baguette",
+      "precio": "200",
+      "imagen": "https://images.pexels.com/photos/1279330/pexels-photo-1279330.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "panadería",
+      "id": 7
+    },
+    {
+      "nombreProducto": "Café Mocha",
+      "precio": "450",
+      "imagen": "https://images.pexels.com/photos/1659722/pexels-photo-1659722.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "bebida caliente",
+      "id": 8
+    },
+    {
+      "nombreProducto": "Pastel de chocolate",
+      "precio": "900",
+      "imagen": "https://images.pexels.com/photos/1889710/pexels-photo-1889710.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "panadería",
+      "id": 9
+    },
+    {
+      "nombreProducto": "Café latte",
+      "precio": "350",
+      "imagen": "https://images.pexels.com/photos/594574/pexels-photo-594574.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "categoria": "bebida caliente",
+      "id": 10
     }
   ],
   "usuarios": [

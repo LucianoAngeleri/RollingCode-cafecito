@@ -1,13 +1,12 @@
-import { Table, Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import ItemProducto from "./producto/ItemProducto";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { obtenerListaProductos } from "../helpers/queries";
+import { obtenerListaProductos,borrarProducto } from "../helpers/queries";
 import Swal from "sweetalert2";
 
 const Administrador = () => {
   const [productos, SetProductos] = useState([]);
-
   useEffect(()=>{
     //consultar a la api y guardar la respuesta en el state
     obtenerListaProductos().then((respuesta)=>{
@@ -20,7 +19,46 @@ const Administrador = () => {
     })
   },[])
 
-  return (
+  const eliminarProducto = (id,nombreProducto) => {
+    Swal.fire({
+      title: `¿Estás seguro de eliminar el producto ${nombreProducto}?`,
+      text: "El producto será eliminado permanentemente",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        borrarProducto(id)
+          .then((respuesta) => {
+            if (respuesta.status === 200) {
+              Swal.fire(
+                "Eliminado",
+                `El producto ${nombreProducto} ha sido eliminado correctamente`,
+                "success"
+              );
+              // Actualizar la lista de productos eliminando el producto correspondiente
+              SetProductos((productos) =>
+                productos.filter((producto) => producto.id !== id)
+              );
+            } else {
+              Swal.fire(
+                "Error",
+                `Hubo un problema al eliminar el producto ${nombreProducto}`,
+                "error"
+              );
+            }
+          })
+          .catch((error) => {
+            console.log(error)
+          });
+      }
+    });
+  };
+
+   return (
         <section className="container mainSection">
         <div className="d-flex justify-content-between align-items-center mt-5">
           <h1 className="display-4 ">Productos disponibles</h1>
@@ -42,7 +80,7 @@ const Administrador = () => {
           </thead>
           <tbody>
             {
-              productos.map((producto)=> <ItemProducto key={producto.id} producto={producto}></ItemProducto>)
+              productos.map((producto)=> <ItemProducto key={producto.id} producto={producto} eliminarProducto={eliminarProducto}></ItemProducto>)
             }
          
           </tbody>
