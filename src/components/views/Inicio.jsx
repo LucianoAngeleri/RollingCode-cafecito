@@ -1,6 +1,19 @@
 import { Container, Row } from "react-bootstrap";
 import CardProducto from "./producto/CardProducto";
+import { useState, useEffect } from "react"
+import { obtenerListaProductos } from "../helpers/queries";
 const Inicio = () => {
+  const [productos, SetProductos] = useState([]);
+  useEffect(()=>{
+    obtenerListaProductos().then((respuesta)=>{
+      if(respuesta){
+        SetProductos(respuesta);
+      }else{
+        Swal.fire('Error', 'Intente realizar esta operación en unos minutos', 'error');
+      }
+    })
+  },[])
+
   return (
     <section className="mainSection">
       <img
@@ -12,10 +25,9 @@ const Inicio = () => {
         <h1 className="display-4">Nuestros Productos</h1>
         <hr />
         <Row>
-            <CardProducto></CardProducto>
-            <CardProducto></CardProducto>
-            <CardProducto></CardProducto>
-            <CardProducto></CardProducto>
+          {
+            productos.map((producto)=><CardProducto producto={producto} key={producto.id}></CardProducto>)
+          }   
         </Row>
       </Container>
     </section>

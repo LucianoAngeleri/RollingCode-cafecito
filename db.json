@@ -1,17 +1,10 @@
 {
   "productos": [
     {
-      "nombreProducto": "Croissant",
-      "precio": "500",
-      "imagen": "https://images.pexels.com/photos/2294361/pexels-photo-2294361.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "categoria": "panadería",
-      "id": 1
-    },
-    {
       "nombreProducto": "Tarta de manzana",
       "precio": "800",
       "imagen": "https://images.pexels.com/photos/1028455/pexels-photo-1028455.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      "categoria": "panadería",
+      "categoria": "dulce",
       "id": 3
     },
     {
